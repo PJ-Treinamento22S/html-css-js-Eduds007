@@ -90,7 +90,7 @@
                     <div class="post-baymax">
                         <div class="profile">
                             <div class="profile-pic">
-                                <img src="../img/baymax.svg">
+                                <img class="perfil" src="../img/baymax.svg">
                                 <p> Baymax</p> 
                                 <img src="../img/piu.svg" alt="piu logo">
                             </div>
@@ -121,7 +121,7 @@
         <div class="post">
             <div class="publicar">
                 <div class="title"><p>Mande um Piu</p></div>
-                <form>
+                <form  name="envio" method="post">
                     <div class="content">
                         <input type="text" class="mensagem" name="Mensagem" placeholder="Digite seu piu aqui" >
                         <div class="anexos">
@@ -131,14 +131,17 @@
                         </div>
    
                    </div>
+                   <div class="contador">0/140</div>
                    <div class="publicar-button">
-                       <input type="submit" value="Enviar">
+                       <input type="submit"  value="Enviar" onclick="validar()">
                    </div>
                 </form>
+                
                 
             </div>
         </div>
 
     </div>
+    <script src="../javascript/index.js"></script>
 </body>
 </html>
