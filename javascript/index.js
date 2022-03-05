@@ -15,6 +15,7 @@ function create_post(element) {
   const int1 = document.createElement("img");
   const int2 = document.createElement("img");
   const int3 = document.createElement("img");
+  const int4 = document.createElement("img");
 
 
  
@@ -39,11 +40,15 @@ function create_post(element) {
   int1.src = "../img/like.svg"
   int2.src = "../img/comment.svg"
   int3.src = "../img/share.svg"
+  int4.src = "../img/trash.svg"
 
   
   n_like.setAttribute("value", 0)
   n_like.innerText = 0
+
+
   int1.setAttribute("onclick", "like(this)")
+  int4.setAttribute("onclick", "delete_post(this)")
 
   const posts = document.querySelector(".posts")
 
@@ -60,6 +65,7 @@ function create_post(element) {
   interaction.appendChild(int1)
   interaction.appendChild(int2)
   interaction.appendChild(int3)
+  interaction.appendChild(int4)
   
 
 }
@@ -146,4 +152,11 @@ const like = (self) => {
   let like = self.parentNode.firstChild
   like.innerText =  parseInt(like.innerText) + parseInt(1)
   console.log(like.innerText)
+}
+
+const delete_post = (self) => {
+  console.log("clicou")
+  let parent = self.parentNode.parentNode
+  parent.parentNode.removeChild(parent)
+
 }
