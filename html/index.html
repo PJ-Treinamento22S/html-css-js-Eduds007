@@ -10,8 +10,7 @@
 <body>
 
     <div class="cima"></div>
-    <div class="cima-detail"></div>
-    
+    <div class="cima-detail"></div>   
     <div class="container" >
 
         
@@ -54,9 +53,11 @@
                 </div>
                 
                 <div class="interaction">
-                    <img src="../img/like.svg" alt="like">
+                    <p class="engajement"></p>
+                    <img href='#' onclick="like()" src="../img/like.svg" alt="like">
                     <img src="../img/comment.svg" alt="comment">
                     <img src="../img/share.svg" alt="share">
+                    
 
                 </div>
             </div>
@@ -121,9 +122,9 @@
         <div class="post">
             <div class="publicar">
                 <div class="title"><p>Mande um Piu</p></div>
-                <form  name="envio" method="post">
+                
                     <div class="content">
-                        <input type="text" class="mensagem"name="Mensagem" placeholder="Digite seu piu aqui" >
+                        <input type="text" class="mensagem" id="formulario" name="Mensagem" placeholder="Digite seu piu aqui" >
                         <div class="anexos">
                             <input type="image" src="../img/photo.svg" alt="Submit" >
                             <input type="image" src="../img/file.svg" alt="Submit" style="margin-left: 8px; margin-right: 8px;" >
@@ -132,10 +133,11 @@
    
                    </div>
                    <div class="contador"></div>
+                   <div class="alerta"></div>
                    <div class="publicar-button">
-                       <input type="submit"  value="Enviar" onclick="validar()">
+                       <button type="button"  value="Enviar" onclick="enviar()">Clique aqui</button> 
                    </div>
-                </form>
+        
                 
                 
             </div>

@@ -1,3 +1,5 @@
+
+
 function create_post(element) {
   
   const postBaymax = document.createElement("div");
@@ -9,9 +11,13 @@ function create_post(element) {
   const text = document.createElement("div");
   const text_posted = document.createElement("p");
   const interaction = document.createElement("div");
+  const n_like = document.createElement("p")
   const int1 = document.createElement("img");
   const int2 = document.createElement("img");
   const int3 = document.createElement("img");
+
+
+ 
 
 
   profile_img.src = element.user.photo
@@ -22,13 +28,22 @@ function create_post(element) {
   profile.classList.add('profile')
   profile_pic.classList.add('profile-pic')
   text.classList.add('text')
+  n_like.classList.add('engajement')
+  n_like.setAttribute('id', element.id)
   interaction.classList.add('interaction')
   profile_img.classList.add("perfil")
+  
+
 
   profile_verified.src = '../img/piu.svg'
   int1.src = "../img/like.svg"
   int2.src = "../img/comment.svg"
   int3.src = "../img/share.svg"
+
+  
+  n_like.setAttribute("value", 0)
+  n_like.innerText = 0
+  int1.setAttribute("onclick", "like(this)")
 
   const posts = document.querySelector(".posts")
 
@@ -41,11 +56,11 @@ function create_post(element) {
   postBaymax.appendChild(text)
   text.appendChild(text_posted)
   postBaymax.appendChild(interaction)
+  interaction.appendChild(n_like)
   interaction.appendChild(int1)
   interaction.appendChild(int2)
   interaction.appendChild(int3)
-
-
+  
 
 }
 
@@ -64,34 +79,71 @@ async function getData() {
 
 getData();
 
-const validar = () => {
-  alert("ola");
-};
-
-
 const word_count = () => {
   const text = document.querySelector("input")
   const div = document.querySelector(".contador")
   const input = document.createElement('p')
   input.classList.add("counter")
   text.onkeyup = (a) => {
-    console.log((a.target.value).length)
+
     input.innerText = (a.target.value.length) + "/140"
     div.appendChild(input)
+    
 
     if ((a.target.value.length) > 140)  {
       
       document.getElementsByClassName("counter")[0].style.color = "red";
       document.getElementsByClassName("mensagem")[0].style.color = "red";
+      
     } 
     else {
       document.getElementsByClassName("counter")[0].style.color = "#f6f6f6";
       document.getElementsByClassName("mensagem")[0].style.color = "#f6f6f6";
+      
 
-    }
+    };
+    
   };
 
-  
 };
 
 word_count()
+
+const enviar = () => {
+  const text = document.getElementById("formulario").value
+  const size = document.getElementById("formulario").value.length
+  console.log(size)
+
+  element =  {
+    user: {
+      photo: '../img/baymax.svg',
+      first_name: "Bay",
+      last_name: "Max",
+    },
+    text
+  };
+
+  const div = document.querySelector(".alerta")
+  const input = document.createElement('p')
+
+  if (size < 140 && size > 1) {
+    create_post(element);
+    div.parentNode.removeChild(div)
+  } else {
+    
+    
+    input.classList.add("aviso")
+    input.innerText = " - o texto deve ter entre 1 e 140 palavras - "
+    div.appendChild(input)
+  };
+}
+
+
+
+
+const like = (self) => {
+  
+  let like = self.parentNode.firstChild
+  like.innerText =  parseInt(like.innerText) + parseInt(1)
+  console.log(like.innerText)
+}

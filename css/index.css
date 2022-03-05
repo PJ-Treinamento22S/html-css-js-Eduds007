@@ -47,7 +47,7 @@ body {
     align-items: center;
     
     text-align: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
     overflow-y:scroll ;
     height: 100%;
 }
@@ -227,7 +227,7 @@ input[type="text"]::placeholder {
     justify-content: center;
 }
 
-input[type="submit"] {
+button {
     padding: 8px 24px 8px 24px;
     margin-top: 16px;
     
