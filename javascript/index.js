@@ -160,3 +160,83 @@ const delete_post = (self) => {
   parent.parentNode.removeChild(parent)
 
 }
+
+
+async function find_user(element) {
+  const user = document.createElement('div')
+  const profile_search = document.createElement("div")
+  const img_search = document.createElement("img")
+  const dados_search = document.createElement("div")
+  const nome_search = document.createElement("p")
+  const usuário_search = document.createElement("p")
+
+
+  const foto = String(element.user.photo.value)
+
+  console.log(foto)
+ 
+
+  img_search.setAttribute("src","foto")
+  nome_search.innerText = "Nome: " +  element.user.first_name + " " + element.user.last_name
+  usuário_search.innerText = "Username: " + element.user.username
+
+  user.classList.add("user")
+  profile_search.classList.add("profile-search")
+  img_search.src = "element.user.photo"
+  dados_search.classList.add("dados")
+  nome_search.classList.add("nome")
+
+
+  const search_div = document.querySelector(".search")
+
+  search_div.appendChild(user)
+  user.appendChild(profile_search)
+  profile_search.appendChild(img_search)
+  profile_search.appendChild(dados_search)
+  dados_search.appendChild(nome_search)
+  dados_search.appendChild(usuário_search)
+
+
+}
+
+/*
+
+<div class="user">
+                <div class="profile-search">
+                    <img src="../img/baymax.svg"> 
+                    <div class="dados">
+                        <p class="nome">nome</p>
+                        <p class=" usuário">usuário</p>
+
+                    </div>
+
+*/
+
+async function pesquisar() {
+  const response = await fetch(
+    "https://api.json-generator.com/templates/BQZ3wDrI6ts0/data?access_token=n7lhzp6uj5oi5goj0h2qify7mi2o8wrmebe3n5ad"
+  );
+
+  const produtos = await response.json();
+  const aba  = document.getElementById('aba').value
+
+  
+
+  produtos.every((element) => {
+    const nome = element.user.first_name + " " + element.user.last_name
+    const username = (element.user.username)
+
+    if ((aba == nome)|| (aba == username)) {
+        console.log(element.user.photo)
+        find_user(element)
+        return false
+
+    } else {
+      console.log("Não Achei")
+      return true
+    }
+
+
+  });
+
+}

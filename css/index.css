@@ -255,8 +255,67 @@ p, a {
     color: #f6f6f6;
 }
 
-.profile-pic .perfil {
+.profile-pic .perfil, .profile.search img {
     width: 52px;
     height: 52px;
     border-radius: 26px;
 }
+
+.search {
+    display: flex;
+    flex: 70%;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #003566;
+    border-radius: 24px;
+    margin-bottom: 10px;
+    
+    
+    
+}
+
+.search-bar {
+    
+    padding: 36px;
+    margin-top: 8px;
+    border-radius: 24px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea {
+    width: 300px;
+    margin: 16px;
+    
+}
+
+.profile-search {
+
+    display: flex;
+    
+    margin: 10px;
+    padding-left: 15px;
+    background-color: #ffc300;
+    width: fit-content;
+    border-radius: 24px;
+    
+    
+}
+
+.dados {
+    margin:15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+}
+
